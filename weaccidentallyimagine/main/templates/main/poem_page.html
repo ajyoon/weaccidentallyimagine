@@ -1,0 +1,187 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>we accidentally imagine</title>
+  <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+
+<!-- Info Modal -->
+<div id="info-modal" class="modal">
+  <div class="info-modal-content">
+    <span id="info-modal-close" class="close">x</span>
+    <h1 id="modal-title">we accidentally imagine</h1>
+    <h3>by andrew yoon</h3>
+    <p>
+      this is a book of mutable poetry. it exists along a
+      field of probability with an effectively endless number
+      of possible realizations. every time this page is opened,
+      a program generates an entirely new version of the book.
+      some elements change more often than others. the random
+      seed for the version you are looking at is {{ seed }}.
+    </p>
+    {% if is_fixed %}
+      <p>
+        because there is a seed number stored in this window's url,
+        refreshing this page or opening a link to this url
+        will render the exact same contents you see now.
+      </p>
+      <p>
+        if you would like to share or keep a link to this version of the book,
+        you can use <a href="/{{ seed }}">this</a>.
+        if you want to visit or share a random new version of the book,
+        use <a href="/">this one</a>.
+      </p>
+    {% else %}
+      <p>
+        because there is no seed number stored in this window's url,
+        refreshing this page will generate an entirely new book with
+        a new random seed.
+      </p>
+      <p>
+        if you would like to share or keep a link to this exact version
+        of the book, you can use <a href="/{{ seed }}">this link</a>.
+      </p>
+    {% endif %}
+    <p>
+      to link to an exact version of a particular poem,
+      hover over the poem's title area and click the link
+      which appears that says "fixed link". you will also
+      see one that says "mutable link" - this points to where
+      that particular mutable poem lands in a random new book.
+      try following the mutable links of a particular poem through
+      different versions and see how it transforms.
+    </p>
+    <p>
+      you can print or (if your computer has the ability) download a
+      print-ready pdf of this version of the book using your browser's
+      printing functionality. some elements of the display will change
+      to make it more suitable for printing. (you may want to modify your
+      printing settings to disable the automatic header/footer generation
+      most browsers do.) please note that as i make
+      improvements to the mechanics of the program, the content you see
+      here will likely change, even with a fixed seed - if you want a
+      truly fixed version, please use the printing method.
+    </p>
+    <p>
+      the code for this entire project is under the gpl3 license and is
+      completely free to read, use, and redistribute. the most up-to-date
+      code is available on github
+      <a href="https://github.com/ajyoon/weaccidentallyimagine">here</a>.
+
+      andrew is a composer, programmer, poet, and bad pianist. you can
+      find some of his other projects online at his personal website
+      <a href="http://andrewjyoon.com/">here</a>.
+    </p>
+  </div>
+
+</div>
+
+<!-- top banner -->
+<div class="top-banner">
+  <button id="open-modal-button">...</button>
+</div>
+
+<!-- printing front-matter, invisible on screens by default -->
+<div class="print-frontmatter">
+  <h1>we accidentally imagine</h1>
+  <h3>by andrew yoon</h3>
+  <p>
+    seed {{ seed }}
+  </p>
+</div>
+
+<div class="page-break"></div>
+<div class="page-break"></div>
+
+<!-- prelude -->
+<div class="prelude-container">
+  <article class="prelude">
+    it is {{ current_year }}. we wonder what to say next,
+    and the wind is still blowing.
+  </article>
+</div>
+
+<div class="page-break"></div>
+
+{% for poem in poem_list %}
+  <div class="page-break"></div>
+  <article style="padding-left: {{ poem.left_pad }}%;
+                  padding-top:  {{ poem.gap_before }}em;">
+    <div class="poem-title-bar">
+      <h4 class="poem-title" id="{{ poem.immutable_id }}">
+        {{ poem.name }}.
+      </h4>
+        <a href="/{{ seed }}#{{ poem.immutable_id }}"
+           onclick="location.hash = '#{{ poem.immutable_id }}'">
+           fixed link
+        </a>
+        <!-- Force reload when going to hash in same url so that
+             the page is re-rendered to generate a new version -->
+        <a href="/#{{ poem.immutable_id }}"
+           onclick="location.hash = '#{{ poem.immutable_id }}';
+                    location.reload(true);">
+          mutable link
+        </a>
+    </div>
+    {{ poem.get | safe }}
+  </article>
+{% endfor %}
+
+<div class="page-break"></div>
+
+<!-- postlude -->
+<div class="postlude-container">
+  <article class="postlude">
+    ,
+  </article>
+</div>
+
+<script>
+  // Modal handling
+  var body = document.body;
+  var infoModal = document.getElementById('info-modal');
+  var openModalButton = document.getElementById('open-modal-button');
+  var closeModalButton = document.getElementById('info-modal-close');
+  function showModal() {
+    infoModal.style.visibility = 'visible';
+    infoModal.style.opacity = '1';
+    // Hide overflow to prevent background from scrolling under the modal
+    body.style.overflowY = 'hidden';
+    document.documentElement.style.overflowY = 'hidden';
+  }
+  function hideModal() {
+    infoModal.style.visibility = 'hidden';
+    infoModal.style.opacity = '0';
+    // Re-show overflow in background
+    body.style.overflowY = 'auto';
+    document.documentElement.style.overflowY = 'auto';
+  }
+  openModalButton.onclick = function () {
+    showModal();
+  };
+  closeModalButton.onclick = function () {
+    hideModal();
+  };
+  window.onclick = function(event) {
+    if (event.target == infoModal) {
+      hideModal();
+    }
+  };
+  // Browser-agnostic jump to hash location
+  $( document ).ready( function () {
+    if (location.hash) {
+      $(document).scrollTop( $(location.hash).offset().top );
+    }
+  });
+</script>
+
+</body>
+</html>

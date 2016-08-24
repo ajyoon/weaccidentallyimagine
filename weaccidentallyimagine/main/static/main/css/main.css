@@ -1,0 +1,274 @@
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+  max-width: 100%;
+  margin: auto;
+  background-color:#eff1f3;
+  color: #223843;
+  font-family: "Crimson Text", serif;
+}
+
+.top-banner {
+  position: fixed;
+  top: 0;
+  right: 0;
+  text-align: right;
+  padding: 0;
+}
+
+.top-banner > a {
+  display: inline-block;
+  -webkit-transition: all ease-in-out 0.5s;
+  transition: all ease-in-out 0.5s;
+  border-bottom: 1px solid transparent;
+  color: #a1b5d8;
+  text-decoration: none;
+  font-style: oblique;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+.modal {
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0); /* fallback */
+  background-color: rgba(0, 0, 0, 0.4);
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+.info-modal-content {
+  overflow-y: scroll;
+  background-color: #fefefe;
+  margin: 1em auto;
+  padding: 20px;
+  border: 1px solid #888;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+  max-height: 80%;
+  width: 90%;
+  max-width: 900px;
+  font-size: 24px;
+}
+
+.info-modal-content h1,
+.info-modal-content h3 {
+  color: #a1b5d8;
+  font-style: italic;
+  margin: 0;
+}
+
+.info-modal-content a {
+  -webkit-transition: all ease-in-out 0.5s;
+  transition: all ease-in-out 0.5s;
+  border-bottom: 1px solid transparent;
+  text-decoration: none;
+  color: #386fcd;
+}
+
+.info-modal-content a:hover {
+  border-color: #386fcd;
+}
+
+.info-modal-content .close {
+  color: #aaa;
+  float: right;
+  font-family: sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#open-modal-button {
+  cursor: pointer;
+  display: inline-block;
+  font-size: 35px;
+  line-height: 1.8;
+  background-color: inherit;
+  color: #a1b5d8;
+  margin: 0;
+  padding: 0 0.8em;
+  box-shadow: none;
+  border-radius: 0;
+  border: none;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s;
+}
+
+#open-modal-button:hover {
+  background-color: #c7dbf0;
+}
+
+.poem-title-bar a:hover {
+  border-color: #a1b5d8;
+  color: #386fcd;
+}
+
+.poem-title-bar {
+  color: #a1b5d8;
+  border-bottom: #a1b5d8 solid;
+  margin-right: 1em;
+  margin-bottom: 2em;
+  max-width: 100%;
+}
+
+.poem-title-bar > a {
+  display: inline-block;
+  float: right;
+  -webkit-transition: all ease-in-out 0.5s;
+  transition: all ease-in-out 0.5s;
+  color: transparent;
+  border-bottom: 1px solid transparent;
+  text-decoration: none;
+  font-style: oblique;
+  margin-left: 1em;
+}
+
+.poem-title-bar:hover > a {
+  color: inherit;
+}
+
+.poem-title-bar a:hover, .poem-title-bar a:focus {
+  border-color: inherit;
+}
+
+.poem-title {
+  font-size: 60px;
+  font-style: italic;
+  color: #a1b5d8;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+article {
+  font-size: 25px;
+}
+
+b, i {
+  color: #812949;
+  font-size: 32px;
+}
+
+/* Special front matter for printing is not shown by default */
+.print-frontmatter {
+  display: none;
+}
+
+.prelude {
+  font-size: 30px;
+  border-bottom: #a1b5d8 solid;
+  border-top: #a1b5d8 solid;
+  padding-bottom: 0.25em;
+  margin: 10em auto 40em auto;
+  width: 11em;
+}
+
+.postlude {
+  margin: 40em auto 15em auto;
+  text-align: center;
+  width: 11em;
+}
+
+.horizontal-blank-space {
+  display: block;
+}
+
+.variable-length-dash {
+  display: inline-block;
+  background-color: #a1b5d8;
+  vertical-align: middle;
+  height: 0.06em;
+}
+
+.variable-height-break {
+  display: block;
+}
+
+
+/* Media Breakpoints */
+@media all {
+  .page-break {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  body {
+    max-width: 900px;
+    margin: auto;
+  }
+}
+
+
+/* Printing */
+@media print {
+
+  html {
+    margin: 0;
+    padding: 0;
+  }
+
+  .page-break {
+    display: block;
+    page-break-after: always;
+  }
+
+  .print-frontmatter {
+    display: block;
+    width: 60%;
+    margin: 30em auto 0 auto;
+  }
+
+  .print-frontmatter h1,
+  .print-frontmatter h3 {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    font-size: 40px;
+    font-style: italic;
+  }
+
+  .print-frontmatter h3 {
+    font-size: 20px;
+  }
+
+  .prelude {
+    padding-top: 20em;
+    border-color: transparent;
+    font-size: 18px;
+  }
+
+  #open-modal-button {
+    display: none;
+  }
+
+  .poem-title {
+    font-size: 30px;
+  }
+
+  article {
+    font-size: 16px;
+    margin-bottom: 0;
+  }
+
+  b, i {
+    font-size: 24px
+  }
+
+  .postlude {
+    padding-top: 40em;
+  }
+}
