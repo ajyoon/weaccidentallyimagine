@@ -2,7 +2,7 @@
 *a book of mutable poetry*
 
 This is the complete source code for the website
-[weaccidentallyimagine.com](weaccidentallyimagine.com).
+[weaccidentallyimagine.com](http://weaccidentallyimagine.com).
 When readers visit the site, stochastic processes render a unique version
 of its 32 poems and deliver them in a single-page website. Users are able
 to get permalinks to versions of the book using a random seed that can be
