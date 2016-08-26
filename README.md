@@ -116,11 +116,3 @@ which determine the poem's stochastic behavior.
 The `SoftPoem.get()` method spins the poem together, processes specialized
 markups in the source texts, and renders the poem as HTML ready to be plugged
 into the master template by the main view.
-
-### Things which aren't quite done yet:
-
-* The CSS still needs a good bit of work - layout isn't quite right
-  for mobile, vendor prefixes need to be verified, and there's more
-  room for selector optimization.
-* There may be room for speed optimization in rendering the poems,
-  specifically in the rendering that occurs within the `SoftPoem` class.
