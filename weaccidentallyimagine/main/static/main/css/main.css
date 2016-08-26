@@ -3,7 +3,7 @@ html, body {
 }
 
 body {
-  max-width: 100%;
+  max-width: 98%;
   margin: auto;
   background-color:#eff1f3;
   color: #223843;
@@ -128,12 +128,14 @@ body {
 .poem-title-bar > a {
   display: inline-block;
   float: right;
+  padding-top: 0.25em;
   -webkit-transition: all ease-in-out 0.5s;
   transition: all ease-in-out 0.5s;
   color: transparent;
   border-bottom: 1px solid transparent;
   text-decoration: none;
   font-style: oblique;
+  font-size: 20px;
   margin-left: 1em;
 }
 
@@ -168,12 +170,13 @@ b, i {
 }
 
 .prelude {
-  font-size: 30px;
+  font-size: 20px;
   border-bottom: #a1b5d8 solid;
   border-top: #a1b5d8 solid;
   padding-bottom: 0.25em;
   margin: 10em auto 40em auto;
   width: 11em;
+  max-width: 85%;
 }
 
 .postlude {
@@ -209,6 +212,16 @@ b, i {
   body {
     max-width: 900px;
     margin: auto;
+  }
+
+  .prelude {
+    font-size: 30px;
+  }
+
+
+  .poem-title-bar > a {
+    padding-top: 0;
+    font-size: inherit;
   }
 }
 
