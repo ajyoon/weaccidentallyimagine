@@ -50,7 +50,7 @@ weaccidentallyimagine/
 │   ├── engine
 │   │   ├── html_utils.py
 │   │   ├── __poems_data_builder.py
-│   │   ├── __poems_original.py
+│   │   ├── __poems_basic_preconfig.py
 │   │   ├── poems.py
 │   │   ├── soft_poem.py
 │   │   └── texts
@@ -104,8 +104,8 @@ markups in the source texts used when rendering the poems to HTML.
 the persistent stochastic behavior of each poem. Much of the data
 in the list of poems here was actually generated with the
 `__poems_data_builder.py` script, which takes basic classes of poems outlined
-in `__poems_original.py` and randomly applies certain parameters to dictate
-persistent behavior in each poem. Try running
+in `__poems_basic_preconfig.py` and randomly applies certain parameters to
+dictate persistent behavior in each poem. Try running
 `$ python __poems_data_builder.py` to make a whole new set of behaviors
 for the book!
 
