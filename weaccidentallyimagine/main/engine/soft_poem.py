@@ -143,13 +143,20 @@ class SoftPoem(soft.SoftObject):
         current_line = []
         for word in working_text:
             if word == '---':
+                # Render triple dashes to variable length visible dashes
+                # (in the form of inline-block spans)
                 dash_length = rand.weighted_rand(self.dash_length_weights)
                 word = html_utils.variable_length_dash(dash_length)
             elif word == '|||':
+                # Render triple pipes as variable height breaks
+                # (in the form of fixed-height spans)
                 y_gap = rand.weighted_rand(
                         self.y_gap_weights)
                 word = html_utils.variable_height_break(y_gap)
             else:
+                # Otherwise, the word will be rendered literally as visible
+                # text, so count it toward the visible character count used
+                # in placing line breaks
                 visible_char_count += len(word)
             # Roll to insert x-axis gaps
             if rand.prob_bool(self.x_gap_freq):
@@ -169,7 +176,6 @@ class SoftPoem(soft.SoftObject):
         # Attach final line
         if current_line:
             lines.append(''.join(current_line))
-
         return (''.join((html_utils.surround_with_tag(
                             line,
                             'div',
@@ -184,16 +190,17 @@ class SoftPoem(soft.SoftObject):
             str: the body of the poem in HTML
         """
         if rand.prob_bool(self.mutable_chance):
+            # Render text from a markov graph derived from the source text
             word_list = []
             word_count = rand.weighted_rand(
                 self.word_count_weights, round_result=True)
-
             word_graph = Graph.from_file(self.filepath, self.distance_weights)
             for i in range(word_count):
                 word = word_graph.pick().get_value()
                 word_list.append(word)
         else:
+            # Otherwise, copy source contents literally
             source_file = open(self.filepath, 'r')
             word_list = source_file.read().split()
-
+        # Combine words, process markups, and return HTML
         return self.process_markups_and_line_breaks_as_html(word_list)
