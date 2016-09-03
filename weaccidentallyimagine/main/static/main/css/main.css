@@ -160,13 +160,13 @@ b, i {
   border-bottom: #a1b5d8 solid;
   border-top: #a1b5d8 solid;
   padding-bottom: 0.25em;
-  margin: 10em auto 40em auto;
+  margin: 40vh auto 60vh auto;
   width: 11em;
   max-width: 85%;
 }
 
 .postlude {
-  margin: 40em auto 15em auto;
+  margin: 100vh auto 55vh auto;
   text-align: center;
   width: 11em;
 }
