@@ -92,7 +92,8 @@ force correct browser handling of links.
 all of the CSS for the site, including media queries for responsive layouts
 and optimized printing.
 
-`main/engine/` holds the meat of the poems.
+`main/engine/` contains the mechanisms for the poems.
+
 `main/engine/texts/` holds all of the source texts for the 32 poems.
 These texts are sometimes used to generate Markov models which drive the text
 generation for each poem, and sometimes they appear verbatim in the output.
@@ -109,9 +110,9 @@ dictate persistent behavior in each poem. Try running
 `$ python __poems_data_builder.py` to make a whole new set of behaviors
 for the book!
 
-`engine/soft_poem.py` contains the `SoftPoem` class, which is an elaborate
+`main/engine/soft_poem.py` contains the `SoftPoem` class, which is an elaborate
 subclass of the `SoftObject` class from the `blur` package. Instances of this
-class represent the poems in the book and contains several parameters
+class represent the poems in the book and contain several parameters
 which determine the poem's stochastic behavior.
 The `SoftPoem.get()` method spins the poem together, processes specialized
 markups in the source texts, and renders the poem as HTML ready to be plugged
