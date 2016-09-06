@@ -1,3 +1,9 @@
+html {
+  /* Background pattern courtesy of Le Marquis and subtlepatterns.com */
+  background-image: url("/static/main/img/background.png");
+  background-repeat: repeat repeat;
+}
+
 html, body {
   overflow-x: hidden;
 }
@@ -5,7 +11,6 @@ html, body {
 body {
   max-width: 98%;
   margin: auto;
-  background-color:#eff1f3;
   color: #223843;
   font-family: "Crimson Text", serif;
 }
@@ -218,6 +223,8 @@ b, i {
   html {
     margin: 0;
     padding: 0;
+    background-image: none;
+    background-color: white;
   }
 
   .page-break {
