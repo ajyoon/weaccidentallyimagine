@@ -47,9 +47,14 @@ body {
 
 .info-modal-content h1,
 .info-modal-content h3 {
+  margin: 0;
   color: #a1b5d8;
   font-style: italic;
-  margin: 0;
+  font-size: 34px;
+}
+
+.info-modal-content h3 {
+  font-size: 28px;
 }
 
 .info-modal-content a {
@@ -140,7 +145,7 @@ body {
 }
 
 .poem-title {
-  font-size: 60px;
+  font-size: 40px;
   font-style: italic;
   color: #a1b5d8;
   margin-top: 0;
@@ -206,10 +211,25 @@ b, i {
     margin: auto;
   }
 
+  .info-modal-content h1,
+  .info-modal-content h3 {
+    margin: 0;
+    color: #a1b5d8;
+    font-style: italic;
+    font-size: 48px;
+  }
+
+  .info-modal-content h3 {
+    font-size: 38px;
+  }
+
   .prelude {
     font-size: 30px;
   }
 
+  .poem-title {
+    font-size: 60px;
+  }
 
   .poem-title-bar > a {
     padding-top: 0;
