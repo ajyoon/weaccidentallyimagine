@@ -73,6 +73,7 @@ body {
   cursor: pointer;
 }
 
+/* Button to open the modal */
 .top-banner {
   position: fixed;
   top: 0;
@@ -86,7 +87,7 @@ body {
   display: inline-block;
   font-size: 35px;
   line-height: 1.8;
-  background-color: inherit;
+  background-color: transparent;
   color: #a1b5d8;
   margin: 0;
   padding: 0 0.8em;
