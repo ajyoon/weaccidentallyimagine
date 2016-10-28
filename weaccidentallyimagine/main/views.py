@@ -1,5 +1,7 @@
 """Views for the application. (Just one view!)"""
 
+import os
+import pickle
 import random
 
 import blur
@@ -40,8 +42,18 @@ def main_view(request, seed=None):
     random.seed(seed)
     # Load the template
     template = loader.get_template('main/poem_page.html')
+
     # Load a list of all of the poems
-    poems = [SoftPoem(**kwargs) for kwargs in poems_data]
+    # Use a pickle when available. If not, make one for the future.
+    pickle_file_path = os.path.join('main', 'engine', 'poems_pickle.p')
+    try:
+        with open(pickle_file_path, 'rb') as pickle_file:
+            poems = pickle.load(pickle_file, fix_imports=False)
+    except FileNotFoundError:
+        poems = [SoftPoem(**kwargs) for kwargs in poems_data]
+        with open(pickle_file_path, 'wb') as pickle_file:
+            pickle.dump(poems, pickle_file, fix_imports=False)
+
     # Order poems
     poems = blur.rand.weighted_order([(poem, poem.position_weight)
                                       for poem in poems])

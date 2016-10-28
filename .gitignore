@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Pickled poems
+weaccidentallyimagine/main/engine/poems_pickle.p
+
 # virtualenv
 venv/
 ENV/
