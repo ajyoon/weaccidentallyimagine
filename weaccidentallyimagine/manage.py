@@ -3,7 +3,7 @@
 """
 Django management script.
 
-For a full list of available commands, run ``python manage.py help``
+For a full list of available commands, run `python manage.py help`
 """
 
 import os

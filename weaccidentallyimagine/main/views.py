@@ -5,7 +5,7 @@ import pickle
 import random
 
 import blur
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse
 from django.template import loader
 from django.utils import timezone
 

@@ -5,7 +5,7 @@ Script to generate persistent behaviors of poems.
 
 This isn't needed to actually run the server --- it's an automatic
 configuration script that's already been run (the results of which are
-stored in ``poems.py``). If you'd like to generate a new set of persistent
+stored in `poems.py`). If you'd like to generate a new set of persistent
 behaviors for the poems, simply run this script.
 """
 

@@ -23,10 +23,10 @@ def surround_with_tag(string, tag, *args):
 
 def horizontal_blank_space(width):
     """
-    Return a string literal HTML empty span with ``width`` in em's.
+    Return a string literal HTML empty span with `width` in em's.
 
-    The HTML ``class`` attribute of this span will be
-    ``horizontal-blank-space``.
+    The HTML `class` attribute of this span will be
+    `horizontal-blank-space`.
 
     Args:
         width (float): the width (length) of the space in em's.
@@ -43,10 +43,10 @@ def horizontal_blank_space(width):
 
 def variable_length_dash(length):
     """
-    Return a string literal HTML empty span with ``length`` in em's.
+    Return a string literal HTML empty span with `length` in em's.
 
-    The HTML ``class`` attribute of this span will be
-    ``variable-length-dash``.
+    The HTML `class` attribute of this span will be
+    `variable-length-dash`.
 
     Args:
         length (float): The length of the dash in em's.
@@ -63,10 +63,10 @@ def variable_length_dash(length):
 
 def variable_height_break(height):
     """
-    Return a string literal HTML empty span with ``height`` in em's.
+    Return a string literal HTML empty span with `height` in em's.
 
-    The HTML ``class`` attribute of this span will be
-    ``varable-height-break``.
+    The HTML `class` attribute of this span will be
+    `varable-height-break`.
 
     Args:
         height (float): The height of the break in em's.

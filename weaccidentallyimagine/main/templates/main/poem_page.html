@@ -67,7 +67,7 @@
       printing settings to disable the automatic header/footer generation
       most browsers do.) please note that as i make
       improvements to the mechanics of the program, the content you see
-      here will likely change, even with a fixed seed - if you want a
+      here will likely change, even with a fixed seed. if you want a
       truly fixed version, please use the printing method.
     </p>
     <p>
@@ -117,7 +117,7 @@
                   padding-top:  {{ poem.gap_before }}em;">
     <div class="poem-title-bar">
       <h4 class="poem-title" id="{{ poem.immutable_id }}">
-        {{ poem.name }}.
+        {{ poem.title }}.
       </h4>
         <a href="/{{ seed }}#{{ poem.immutable_id }}"
            onclick="location.hash = '#{{ poem.immutable_id }}'">
